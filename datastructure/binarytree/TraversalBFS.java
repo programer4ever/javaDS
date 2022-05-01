@@ -54,8 +54,26 @@ public class TraversalBFS {
 		return bt;
 	}
 
+	public static void printCurrentLevel(Node root, int level) {
+		if (root == null) {
+			return;
+		}
+		if (level == 1) {
+			System.out.print(" " + root.value);
+		}
+		if (level > 1) {
+			printCurrentLevel(root.left, level - 1);
+			printCurrentLevel(root.right, level - 1);
+		}
+	}
+
    public static void main (String[] s) {
 	   BinaryTree bt = doCreate();
-	   System.out.println("Height of Binary Tree is : " + height(bt.root));
+	   int treeHeight = height(bt.root);
+	   System.out.println("Height of Binary Tree is : " + treeHeight);
+	   System.out.println(" Level Traversal is : \n");
+	   for (int height = 1 ; height <= treeHeight + 1 ; height ++) {
+		   printCurrentLevel(bt.root, height);
+	   }
    }
 }
