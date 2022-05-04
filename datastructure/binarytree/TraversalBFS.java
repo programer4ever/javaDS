@@ -67,13 +67,22 @@ public class TraversalBFS {
 		}
 	}
 
+	public static void treeLevelTraversal(BinaryTree bt) {
+		int treeHeight = height(bt.root);
+		for (int height = 1; height <= treeHeight + 1; height++) {
+			printCurrentLevel(bt.root, height);
+		}
+	}
+
    public static void main (String[] s) {
 	   BinaryTree bt = doCreate();
 	   int treeHeight = height(bt.root);
 	   System.out.println("Height of Binary Tree is : " + treeHeight);
 	   System.out.println(" Level Traversal is : \n");
-	   for (int height = 1 ; height <= treeHeight + 1 ; height ++) {
-		   printCurrentLevel(bt.root, height);
-	   }
+		/*
+		 * for (int height = 1 ; height <= treeHeight + 1 ; height ++) {
+		 * printCurrentLevel(bt.root, height); }
+		 */
+	   treeLevelTraversal(bt);
    }
 }
